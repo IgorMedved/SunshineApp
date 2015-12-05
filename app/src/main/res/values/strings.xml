@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Sunshine</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="connection_error">Can not connect to network!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_connection_error">ConnectionErrorActivity</string>
 
 </resources>
