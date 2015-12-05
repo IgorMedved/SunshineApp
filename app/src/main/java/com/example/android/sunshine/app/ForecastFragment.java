@@ -110,7 +110,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
         String stringUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Burlington,ca&mode=json&units=metric&cnt=7&appid="+ApiId.APIID;
 
-        FetchWeatherSnippet mySnippet = new FetchWeatherSnippet();
+        FetchWeatherTask mySnippet = new FetchWeatherTask();
         mySnippet.execute(stringUrl);
 
 
@@ -185,7 +185,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         public void onFragmentInteraction (String id);
     }
 
-    private class FetchWeatherSnippet extends AsyncTask <String, Void, String>
+    private class FetchWeatherTask extends AsyncTask <String, Void, String>
     {
 
 
