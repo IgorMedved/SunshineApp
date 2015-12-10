@@ -2,6 +2,7 @@ package com.example.android.sunshine.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -268,6 +269,19 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         mForecastAdapter = new ForecastAdapter(getActivity(),R.layout.list_item_forecast, R.id.list_item_forecast_textview, weatherForecasts);
         ListView weekList = (ListView)rootView.findViewById(R.id.listview_forecast);
         weekList.setAdapter(mForecastAdapter);
+        weekList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick (AdapterView<?> parent, View view, int position, long id)
+            {
+                /*Toast toast = Toast.makeText(getActivity(), mForecastAdapter.getItem(position), Toast.LENGTH_SHORT);
+                toast.show();*/
+
+                Intent intent = new Intent (getActivity(), DetailActivity.class);
+                intent.putExtra ("dayWeatherForecast", mForecastAdapter.getItem(position));
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
 

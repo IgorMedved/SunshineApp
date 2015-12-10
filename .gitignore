@@ -46,7 +46,10 @@ build/
 # apiKey for weatherApi
 sunshine api key.txt
 apiid.java
-#unimplemented classes
+
+#unimplemented or unused classes
 connectionErrorActivity.java
 menu_connection_error.xml
 activity_connection_error.xml
+weatherdataparser.java
+WeatherDataParser.java
