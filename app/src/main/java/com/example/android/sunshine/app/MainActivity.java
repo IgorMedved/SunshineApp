@@ -2,13 +2,14 @@ package com.example.android.sunshine.app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity implements ForecastFragment.OnFragmentInteractionListener
 {
-
+    private String LOG_TAG = MainActivity.class.getSimpleName();
 
     public void onFragmentInteraction (String id)
     {
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         {
             return true;
         }
+        else if (id == R.id.action_refresh)
+        {
+            Log.v (LOG_TAG, "i am here");
+            return false;
+        }
+
+
 
         return super.onOptionsItemSelected(item);
     }
