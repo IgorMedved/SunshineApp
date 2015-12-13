@@ -25,6 +25,7 @@ application
 ADDED from AndroidManifest.xml:8:5
 MERGED from com.android.support:appcompat-v7:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
+MERGED from com.android.support:support-v4:22.2.1:22:5
 	android:label
 		ADDED from AndroidManifest.xml:11:9
 	android:allowBackup
@@ -50,22 +51,31 @@ ADDED from AndroidManifest.xml:19:17
 	android:name
 		ADDED from AndroidManifest.xml:19:27
 activity#com.example.android.sunshine.app.DetailActivity
-ADDED from AndroidManifest.xml:23:9
+ADDED from AndroidManifest.xml:22:9
 	android:label
-		ADDED from AndroidManifest.xml:25:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:26:13
-	android:name
 		ADDED from AndroidManifest.xml:24:13
-meta-data#android.support.PARENT_ACTIVITY
-ADDED from AndroidManifest.xml:27:13
-	android:value
-		ADDED from AndroidManifest.xml:29:17
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:25:13
 	android:name
+		ADDED from AndroidManifest.xml:23:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:26:13
+	android:value
 		ADDED from AndroidManifest.xml:28:17
+	android:name
+		ADDED from AndroidManifest.xml:27:17
+activity#com.example.android.sunshine.app.SettingsActivity
+ADDED from AndroidManifest.xml:30:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:33:13
+	android:name
+		ADDED from AndroidManifest.xml:31:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.2.1:20:5
+MERGED from com.android.support:support-v4:22.2.1:20:5
 MERGED from com.android.support:support-v4:22.2.1:20:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0

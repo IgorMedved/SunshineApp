@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    android
+
+    <EditTextPreference
+        android:id="@+id/location_pref"
+        android:key="@string/pref_key_location"
+        android:title="@string/pref_title_location"
+        android:defaultValue="@string/pref_default_location"
+        android:inputType="text"
+        android:singleLine="true"
+         />
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:key="@string/pref_temp_key"
+        android:title="@string/pref_temp_title"
+
+        android:entries="@array/pref_temp_list_titles"
+        android:entryValues="@array/pref_temp_list_values"
+        android:defaultValue="string/pref_temp_default"
+
+        android:negativeButtonText="cancel"
+        android:positiveButtonText="@null" />
+
+</PreferenceScreen>

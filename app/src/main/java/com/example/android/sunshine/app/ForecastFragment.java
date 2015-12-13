@@ -3,11 +3,13 @@ package com.example.android.sunshine.app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
@@ -118,6 +120,19 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
      */
     private String formatHighLows(double high, double low) {
         // For presentation, assume the user doesn't care about tenths of a degree.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String units = prefs.getString(getString(R.string.pref_temp_key), getString(R.string.pref_temp_default));
+
+        if (units.equals(getString(R.string.pref_temp_units_imperial)))
+        {
+            high = high*9/5 +32;
+            low = low * 9/5 +32;
+        }
+        else if (!units.equals(getString(R.string.pref_temp_units_metric)))
+        {
+            Log.v(LOG_TAG, "Wrong units " + units);
+        }
+
         long roundedHigh = Math.round(high);
         long roundedLow = Math.round(low);
 
@@ -229,6 +244,23 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
     }
 
+    @Override
+    public void onStart ()
+    {
+        super.onStart();
+        updateWeather();
+    }
+
+    private void updateWeather()
+    {
+        FetchWeatherTask mySnippet = new FetchWeatherTask();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+
+        String locationPref = sharedPref.getString(getString(R.string.pref_key_location), getString(R.string.pref_default_location));
+        mySnippet.execute(locationPref);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item)
@@ -238,9 +270,8 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         if (id == R.id.action_refresh)
         {
             //Log.e(LOG_TAG, "I am here!");
-            FetchWeatherTask mySnippet = new FetchWeatherTask();
-            String zip = OLDBRIDGE_ZIP;
-            mySnippet.execute((String)null);
+            updateWeather();
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -252,17 +283,16 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         weatherForecasts = new ArrayList<>();
-        weatherForecasts.add("Today - Sunny - 88/63");
+        /*weatherForecasts.add("Today - Sunny - 88/63");
         weatherForecasts.add("Tomorrow - Foggy - 70/46");
         weatherForecasts.add("Weds - Cloudy - 72/63");
         weatherForecasts.add("Thurs - Rainy - 64/53");
         weatherForecasts.add("Fri - Foggy - 70/46");
-        weatherForecasts.add("Sat - Sunny - 76/68");
+        weatherForecasts.add("Sat - Sunny - 76/68");*/
 
         //String stringUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Burlington,ca&mode=json&units=metric&cnt=7&appid="+ApiId.APIID;
 
-        FetchWeatherTask mySnippet = new FetchWeatherTask();
-        mySnippet.execute(OLDBRIDGE_ZIP);
+
 
 
 

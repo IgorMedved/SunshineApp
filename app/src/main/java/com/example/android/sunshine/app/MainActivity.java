@@ -1,10 +1,17 @@
 package com.example.android.sunshine.app;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements ForecastFragment.OnFragmentInteractionListener
@@ -49,12 +56,33 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings)
         {
+            Intent intent = new Intent (MainActivity.this, SettingsActivity.class);
+            startActivity (intent);
+
             return true;
         }
         else if (id == R.id.action_refresh)
         {
             Log.v (LOG_TAG, "i am here");
             return false;
+        }
+        else if (id == R.id.action_show_location)
+        {
+
+            SharedPreferences locationPref = PreferenceManager.getDefaultSharedPreferences(this);
+            String locationString = locationPref.getString(getString(R.string.pref_key_location), getString(R.string.pref_default_location));
+            Uri location = Uri.parse("geo:0?q="+locationString );
+
+            Intent intent = new Intent (Intent.ACTION_VIEW, location);
+
+            PackageManager packageManager = getPackageManager();
+            List activities = packageManager.queryIntentActivities(intent,
+                    PackageManager.MATCH_DEFAULT_ONLY);
+            boolean isIntentSafe = activities.size() > 0;
+            if (isIntentSafe)
+                startActivity(intent);
+
+            return true;
         }
 
 

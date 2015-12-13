@@ -1,5 +1,6 @@
 package com.example.android.sunshine.app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ public class DetailActivity extends AppCompatActivity
     @Override
     protected void onCreate (Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         //String weatherForecast = getIntent().getStringExtra("dayWeatherForecast");
         setContentView(R.layout.activity_detail);
@@ -43,7 +45,13 @@ public class DetailActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings)
         {
+            Intent intent = new Intent (DetailActivity.this, SettingsActivity.class);
+            startActivity (intent);
             return true;
+        }
+        if (id == R.id.menu_item_share)
+        {
+            return false; // delagate processing to fragment
         }
 
         return super.onOptionsItemSelected(item);
