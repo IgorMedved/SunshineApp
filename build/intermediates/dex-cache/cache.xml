@@ -2,20 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\pre-dexed\debug\classes-ffafc9ce73ba8f779085aef60d076945725592a6.jar" />
-    </item>
-    <item
-        jar="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\pre-dexed\debug\classes-793d6ccee23d8e1b6798d5a00915996c307887eb.jar" />
-    </item>
-    <item
         jar="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -28,6 +14,20 @@
         revision="23.0.2"
         sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
         <dex dex="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-15bfb26749f695b2606afa6e64be1a08978ba2c4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\pre-dexed\debug\classes-ffafc9ce73ba8f779085aef60d076945725592a6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Igor\Desktop\AndroidStudioPr\Sunshine-Version-2\app\build\intermediates\pre-dexed\debug\classes-793d6ccee23d8e1b6798d5a00915996c307887eb.jar" />
     </item>
 
 </items>
