@@ -7,5 +7,6 @@
     <string name="title_activity_connection_error">ConnectionErrorActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="no_weather_available">No weather available</string>
 
 </resources>

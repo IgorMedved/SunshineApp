@@ -1717,19 +1717,20 @@ containing a value of this type.
         public static final int app_name=0x7f060012;
         public static final int connection_error=0x7f060013;
         public static final int hello_world=0x7f060014;
-        public static final int pref_default_location=0x7f060015;
+        public static final int no_weather_available=0x7f060015;
         public static final int pref_header_general=0x7f060016;
-        public static final int pref_key_location=0x7f060017;
-        public static final int pref_temp_default=0x7f060018;
-        public static final int pref_temp_key=0x7f060019;
+        public static final int pref_location_default=0x7f060017;
+        public static final int pref_location_key=0x7f060018;
+        public static final int pref_location_title=0x7f060019;
         public static final int pref_temp_title=0x7f06001a;
-        public static final int pref_temp_units_imperial=0x7f06001b;
-        public static final int pref_temp_units_metric=0x7f06001c;
-        public static final int pref_title_location=0x7f06001d;
-        public static final int status_bar_notification_info_overflow=0x7f06001e;
-        public static final int title_activity_connection_error=0x7f06001f;
-        public static final int title_activity_detail=0x7f060020;
-        public static final int title_activity_settings=0x7f060021;
+        public static final int pref_units_default=0x7f06001b;
+        public static final int pref_units_imperial=0x7f06001c;
+        public static final int pref_units_key=0x7f06001d;
+        public static final int pref_units_metric=0x7f06001e;
+        public static final int status_bar_notification_info_overflow=0x7f06001f;
+        public static final int title_activity_connection_error=0x7f060020;
+        public static final int title_activity_detail=0x7f060021;
+        public static final int title_activity_settings=0x7f060022;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080073;

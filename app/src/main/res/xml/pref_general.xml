@@ -3,9 +3,9 @@
 
     <EditTextPreference
         android:id="@+id/location_pref"
-        android:key="@string/pref_key_location"
-        android:title="@string/pref_title_location"
-        android:defaultValue="@string/pref_default_location"
+        android:key="@string/pref_location_key"
+        android:title="@string/pref_location_title"
+        android:defaultValue="@string/pref_location_default"
         android:inputType="text"
         android:singleLine="true"
          />
@@ -14,7 +14,7 @@
          dismiss it. -->
     <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
     <ListPreference
-        android:key="@string/pref_temp_key"
+        android:key="@string/pref_units_key"
         android:title="@string/pref_temp_title"
 
         android:entries="@array/pref_temp_list_titles"

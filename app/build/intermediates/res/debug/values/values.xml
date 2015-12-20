@@ -219,17 +219,18 @@
     <string name="app_name">Sunshine</string>
     <string name="connection_error">Can not connect to network!</string>
     <string name="hello_world">Hello world!</string>
+    <string name="no_weather_available">No weather available</string>
     <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/src/main/res/values/strings_activity_settings.xml -->
     <eat-comment/>
-    <string name="pref_default_location">08857</string>
     <string name="pref_header_general">General</string>
-    <string name="pref_key_location">location</string>
-    <string name="pref_temp_default">1</string>
-    <string name="pref_temp_key">temperature</string>
+    <string name="pref_location_default">08857</string>
+    <string name="pref_location_key">location</string>
+    <string name="pref_location_title">Location</string>
     <string name="pref_temp_title">Temperature Units</string>
-    <string name="pref_temp_units_imperial">2</string>
-    <string name="pref_temp_units_metric">1</string>
-    <string name="pref_title_location">Location</string>
+    <string name="pref_units_default">1</string>
+    <string name="pref_units_imperial">2</string>
+    <string name="pref_units_key">temperature</string>
+    <string name="pref_units_metric">1</string>
     <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
