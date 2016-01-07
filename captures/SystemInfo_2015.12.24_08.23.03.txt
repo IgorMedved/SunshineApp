@@ -1,0 +1,44 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        27298578 com.example.android.sunshine.app/.MainActivity
+
+Registered ContentProviders:
+  com.example.android.sunshine.app/.data.WeatherProvider:
+    Provider{6289451 com.example.android.sunshine.app/.data.WeatherProvider}
+
+ContentProvider Authorities:
+  [com.example.android.sunshine.app]:
+    Provider{6289451 com.example.android.sunshine.app/.data.WeatherProvider}
+      applicationInfo=ApplicationInfo{41e04b6 com.example.android.sunshine.app}
+
+Key Set Manager:
+  [com.example.android.sunshine.app]
+      Signing KeySets: 7
+
+Packages:
+  Package [com.example.android.sunshine.app] (1bf60d72):
+    userId=10086 gids=[3003]
+    pkg=Package{fba5b7 com.example.android.sunshine.app}
+    codePath=/data/app/com.example.android.sunshine.app-2
+    resourcePath=/data/app/com.example.android.sunshine.app-2
+    legacyNativeLibraryDir=/data/app/com.example.android.sunshine.app-2/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=1 targetSdk=22
+    versionName=1.0
+    splits=[base]
+    applicationInfo=ApplicationInfo{41e04b6 com.example.android.sunshine.app}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    dataDir=/data/data/com.example.android.sunshine.app
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2015-12-24 06:27:27
+    firstInstallTime=2015-12-08 02:09:45
+    lastUpdateTime=2015-12-24 06:27:28
+    signatures=PackageSignatures{36022e40 [3a2d8124]}
+    permissionsFixed=true haveGids=true installStatus=1
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    User 0:  installed=true hidden=false stopped=false notLaunched=false enabled=0
+    grantedPermissions:
+      android.permission.INTERNET
+      android.permission.ACCESS_NETWORK_STATE

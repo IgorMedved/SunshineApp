@@ -19,12 +19,17 @@ public class DetailActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         //String weatherForecast = getIntent().getStringExtra("dayWeatherForecast");
         setContentView(R.layout.activity_detail);
+        Log.v(LOG_TAG, "saved instance is " + savedInstanceState);
+
         if (savedInstanceState == null)
         {
             DetailActivityFragment fragment = new DetailActivityFragment();
+            Bundle args = new Bundle();
+            args.putParcelable(DetailActivityFragment.DETAIL_URI, getIntent().getData());
+            fragment.setArguments(args);
 
             getSupportFragmentManager().beginTransaction()
-                                       .add(R.id.container, fragment).commit();
+                                       .add(R.id.weather_detail_container, fragment).commit();
         }
     }
 
@@ -103,4 +108,6 @@ public class DetailActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

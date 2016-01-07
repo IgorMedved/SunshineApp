@@ -1,7 +1,6 @@
 package com.example.android.sunshine.app;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +20,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.sunshine.app.data.WeatherContract;
-import com.example.android.sunshine.app.dummy.DummyContent;
 
 /**
  * A fragment representing a list of Items.
@@ -37,13 +34,18 @@ import com.example.android.sunshine.app.dummy.DummyContent;
 public class ForecastFragment extends Fragment implements AbsListView.OnItemClickListener, LoaderManager.LoaderCallbacks<Cursor>
 {
 
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String LOG_TAG = ForecastFragment.class.getSimpleName();
 
+
     private static final int FORECAST_LOADER = 0;
+    public static final String LIST_POSITION = "position";
 
 
 
@@ -53,7 +55,8 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
 
     private ForecastAdapter mForecastAdapter;
-
+    private int mListPosition = ListView.INVALID_POSITION;
+    private boolean mUseTodayLayout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -66,7 +69,14 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-
+    public void setUseTodayLayout (boolean useTodayLayout)
+    {
+        mUseTodayLayout = useTodayLayout;
+        if(mForecastAdapter!=null)
+        {
+            mForecastAdapter.setUseTodayLayout(useTodayLayout);
+        }
+    }
 
     // TODO: Rename and change types of parameters
     public static ForecastFragment newInstance (String param1, String param2)
@@ -128,26 +138,30 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
     }
 // onStart commented out to save on network usage. To update data press refresh from menu
-   /* @Override
+    @Override
     public void onStart ()
     {
         super.onStart();
-        updateWeather();
+
     }
-*/
+
     private void updateWeather()
     {
 
         FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
         String location = Utility.getPreferredLocation(getActivity());
         weatherTask.execute(location);
+        getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
     }
 
     public void onLocationChanged()
     {
         updateWeather();
         getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
+
     }
+
+
 
 
     @Override
@@ -166,43 +180,34 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
     }
 
     @Override
+    public void onSaveInstanceState (Bundle outState)
+    {
+        if(mListPosition!= ListView.INVALID_POSITION)
+            outState.putInt(LIST_POSITION, mListPosition);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
         mForecastAdapter = new ForecastAdapter(getActivity(),null,0);
+        mForecastAdapter.setUseTodayLayout(mUseTodayLayout);
 
+
+        if (savedInstanceState !=null && savedInstanceState.containsKey(LIST_POSITION))
+            mListPosition = savedInstanceState.getInt(LIST_POSITION);
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-
-
-
-        Log.v("Test", "onCreate ForecastFragment");
-
         mListView = (ListView)rootView.findViewById(R.id.listview_forecast);
-        setEmptyText(getString(R.string.no_weather_available));
+        //setEmptyText(getString(R.string.no_weather_available));
+
         mListView.setAdapter(mForecastAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
 
-            @Override
-            public void onItemClick (AdapterView adapterView, View view, int position, long l)
-            {
-                // CursorAdapter returns a cursor at the correct position for getItem(), or null
-                // if it cannot seek to that position.
-                Cursor cursor = (Cursor) adapterView.getItemAtPosition(position);
-                if (cursor != null)
-                {
-                    String locationSetting = Utility.getPreferredLocation(getActivity());
-                    Intent intent = new Intent(getActivity(), DetailActivity.class)
-                            .setData(WeatherContract.WeatherEntry
-                                    .buildWeatherLocationWithDate(locationSetting, cursor
-                                            .getLong(ForecastAdapter.COL_WEATHER_DATE)));
-                    startActivity(intent);
-                }
-            }
-        });
+        mListView.setOnItemClickListener(this);
+
 
 
         return rootView;
@@ -237,8 +242,17 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            Cursor cursor = (Cursor) parent.getItemAtPosition(position);
+            if (cursor != null)
+            {
+                String locationSetting = Utility.getPreferredLocation(getActivity());
+                mListener.onFragmentInteraction(WeatherContract.WeatherEntry
+                        .buildWeatherLocationWithDate(locationSetting, cursor
+                                .getLong(ForecastAdapter.COL_WEATHER_DATE)));
+
+            }
         }
+        mListPosition = position;
     }
 
     /**
@@ -275,6 +289,12 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
     public void onLoadFinished (Loader<Cursor> loader, Cursor data)
     {
         mForecastAdapter.swapCursor(data);
+        if (mListPosition!= ListView.INVALID_POSITION)
+        {
+
+            mListView.smoothScrollToPosition(mListPosition);
+
+        }
     }
 
     @Override
@@ -297,7 +317,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
     public interface OnFragmentInteractionListener
     {
         // TODO: Update argument type and name
-        public void onFragmentInteraction (String id);
+        public void onFragmentInteraction (Uri uri);
     }
 
 

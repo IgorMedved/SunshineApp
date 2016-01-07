@@ -255,4 +255,10 @@
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
         <item name="android:colorButtonNormal">?attr/colorButtonNormal</item>
     </style>
+    <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/src/main/res/values-v21/styles.xml -->
+    <eat-comment/>
+    <style name="SettingsTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/sunshine_blue</item>
+        <item name="android:colorPrimaryDark">@color/sunshine_dark_blue</item>
+    </style>
 </resources>

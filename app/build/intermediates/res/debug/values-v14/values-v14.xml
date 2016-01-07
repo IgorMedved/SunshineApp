@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/src/main/res/values-v14/styles.xml -->
+    <eat-comment/>
+    <style name="ActionBar.V14.Sunshine.NoTitle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/sunshine_blue</item>
+        <item name="android:height">56dp</item>
+    </style>
     <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v14/values-v14.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat.Button">
@@ -21,6 +27,13 @@
         <item name="android:listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="android:listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
     </style>
+    <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/src/main/res/values-v14/styles.xml -->
+    <eat-comment/>
+    <style name="SettingsTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar.V14.Sunshine.NoTitle</item>
+    </style>
+    <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v14/values-v14.xml -->
+    <eat-comment/>
     <style name="TextAppearance.StatusBar.EventContent" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
     <style name="TextAppearance.StatusBar.EventContent.Info"/>
     <style name="TextAppearance.StatusBar.EventContent.Line2">

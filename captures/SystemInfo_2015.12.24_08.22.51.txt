@@ -1,0 +1,204 @@
+TASK com.example.android.sunshine.app id=973
+  ACTIVITY com.example.android.sunshine.app/.DetailActivity 281e19c3 pid=26001
+    Local FragmentActivity 277ad9b6 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    Active Fragments in 32d8b8fa:
+      #0: DetailActivityFragment{142888a1 #0 id=0x7f0d004f}
+        mFragmentId=#7f0d004f mContainerId=#7f0d004f mTag=null
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=true mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=true
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{32d8b8fa in DetailActivity{277ad9b6}}
+        mActivity=com.example.android.sunshine.app.DetailActivity@277ad9b6
+        mContainer=android.widget.FrameLayout{3c696ac6 V.E..... ........ 0,0-768,1022 #7f0d004f app:id/container}
+        mView=android.widget.ScrollView{328efa87 VFED.V.. ........ 0,0-768,1022}
+        mInnerView=android.widget.ScrollView{328efa87 VFED.V.. ........ 0,0-768,1022}
+        Loader Manager:
+          Active Loaders:
+            #0: LoaderInfo{229ffdb4 #0 : CursorLoader{2aa40ddd}}
+              mId=0 mArgs=null
+              mCallbacks=DetailActivityFragment{142888a1 #0 id=0x7f0d004f}
+              mLoader=CursorLoader{2aa40ddd id=0}
+                mId=0 mListener=LoaderInfo{229ffdb4 #0 : CursorLoader{2aa40ddd}}
+                mStarted=true mContentChanged=false mProcessingChange=false
+                mUri=content://com.example.android.sunshine.app/weather/08857/1450933200000
+                mProjection=[weather._id, date, short_desc, max, min, humidity, wind, degrees, pressure]
+                mSelection=null
+                mSelectionArgs=null
+                mSortOrder=date ASC
+                mCursor=android.content.ContentResolver$CursorWrapperInner@3a016d52
+                mContentChanged=false
+              mHaveData=true  mDeliveredData=true
+              mData=android.content.ContentResolver$CursorWrapperInner@3a016d52
+              mStarted=true mReportNextStart=false mDestroyed=false
+              mRetaining=false mRetainingStarted=false mListenerRegistered=true
+        Child FragmentManager{156b823 in DetailActivityFragment{142888a1}}:
+          FragmentManager misc state:
+            mActivity=com.example.android.sunshine.app.DetailActivity@277ad9b6
+            mContainer=android.support.v4.app.Fragment$1@c194120
+            mParent=DetailActivityFragment{142888a1 #0 id=0x7f0d004f}
+            mCurState=5 mStateSaved=false mDestroyed=false
+    Added Fragments:
+      #0: DetailActivityFragment{142888a1 #0 id=0x7f0d004f}
+    Fragments Created Menus:
+      #0: DetailActivityFragment{142888a1 #0 id=0x7f0d004f}
+    FragmentManager misc state:
+      mActivity=com.example.android.sunshine.app.DetailActivity@277ad9b6
+      mContainer=android.support.v4.app.FragmentActivity$2@1758aad9
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{31a50c9e V.E..... ... 0,0-768,1280}
+        android.widget.LinearLayout{d52b37f V.E..... ... 0,0-768,1184}
+          android.view.ViewStub{32214f4c G.E..... ... 0,0-0,0 #1020373}
+          android.widget.FrameLayout{1f201b95 V.E..... ... 0,50-768,1184}
+            android.support.v7.internal.widget.ActionBarOverlayLayout{335154aa V.E..... ... 0,0-768,1134 #7f0d003e app:id/decor_content_parent}
+              android.support.v7.internal.widget.ContentFrameLayout{6e9089b V.E..... ... 0,112-768,1134 #1020002 android:id/content}
+                android.widget.FrameLayout{3c696ac6 V.E..... ... 0,0-768,1022 #7f0d004f app:id/container}
+                  android.widget.ScrollView{328efa87 VFED.V.. ... 0,0-768,1022}
+                    android.widget.LinearLayout{34ba1438 V.E..... ... 0,0-768,420}
+                      android.support.v7.widget.AppCompatTextView{b3dc11 V.ED.... ... 32,32-108,70 #7f0d0050 app:id/detail_day_txt}
+                      android.support.v7.widget.AppCompatTextView{1fc81176 V.ED.... ... 32,70-199,108 #7f0d0051 app:id/detail_date_txt}
+                      android.widget.LinearLayout{34c59377 V.E..... ... 32,140-736,274}
+                        android.widget.LinearLayout{30183be4 V.E..... ... 0,0-352,76}
+                          android.support.v7.widget.AppCompatTextView{12e9284d V.ED.... ... 0,0-42,38 #7f0d0052 app:id/detail_high_textview}
+                          android.support.v7.widget.AppCompatTextView{101bcf02 V.ED.... ... 0,38-42,76 #7f0d0053 app:id/detail_low_textview}
+                        android.widget.LinearLayout{3275f013 V.E..... ... 352,0-704,134}
+                          android.widget.ImageView{2d0f3250 V.ED.... ... 128,0-224,96 #7f0d0054 app:id/detail_icon}
+                          android.support.v7.widget.AppCompatTextView{aacfc49 V.ED.... ... 138,96-213,134 #7f0d0055 app:id/detail_description_textview}
+                      android.support.v7.widget.AppCompatTextView{29fbd94e V.ED.... ... 32,274-218,312 #7f0d0056 app:id/detail_humidity_textview}
+                      android.support.v7.widget.AppCompatTextView{3cc57a6f V.ED.... ... 32,312-238,350 #7f0d0057 app:id/detail_wind_textview}
+                      android.support.v7.widget.AppCompatTextView{2c3d237c V.ED.... ... 32,350-274,388 #7f0d0058 app:id/detail_pressure_textview}
+              android.support.v7.internal.widget.ActionBarContainer{24c01405 V.ED.... ... 0,0-768,112 #7f0d003f app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{2cc03c5a V.E..... ... 0,0-768,112 #7f0d0040 app:id/action_bar}
+                  android.widget.TextView{27d94e8b V.ED.... ... 120,29-355,83}
+                  android.widget.ImageButton{37f6fb68 VFED..C. ... 0,0-112,112}
+                  android.support.v7.widget.ActionMenuView{2f32eb81 V.E..... ... 463,0-768,112}
+                    android.support.v7.internal.widget.ActivityChooserView{335c426 V.E..... ... 0,20-225,92}
+                      android.support.v7.internal.widget.ActivityChooserView$InnerLayout{1b0c4867 V.ED.... ... 0,0-225,72 #7f0d0026 app:id/activity_chooser_view_content}
+                        android.widget.FrameLayout{28f46614 VFE...C. ... 0,0-112,72 #7f0d0027 app:id/expand_activities_button}
+                          android.widget.ImageView{2ea1bebd V.ED.... ... 24,4-88,68 #7f0d0028 app:id/image}
+                        android.widget.FrameLayout{2629fcb2 VFE...CL ... 113,0-225,72 #7f0d0029 app:id/default_activity_button}
+                          android.widget.ImageView{2e8b0403 V.ED.... ... 24,4-88,68 #7f0d0028 app:id/image}
+                    android.support.v7.widget.ActionMenuPresenter$OverflowMenuButton{9bbcf80 VFED..C. ... 225,8-305,104}
+                android.support.v7.internal.widget.ActionBarContextView{1b3089b9 G.E..... ... 0,0-0,0 #7f0d0041 app:id/action_context_bar}
+        android.view.View{1bb731fe V.ED.... ... 0,0-768,50 #102002f android:id/statusBarBackground}
+        android.view.View{6afdd5f V.ED.... ... 0,1184-768,1280 #1020030 android:id/navigationBarBackground}
+
+  ACTIVITY com.example.android.sunshine.app/.MainActivity ba70bc5 pid=26001
+    Local FragmentActivity 370579e1 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=false
+    Active Fragments in 4ce63ac:
+      #0: ForecastFragment{31470875 #0 id=0x7f0d004f ForecastFragment}
+        mFragmentId=#7f0d004f mContainerId=#7f0d004f mTag=ForecastFragment
+        mState=2 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=true
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{4ce63ac in MainActivity{370579e1}}
+        mActivity=com.example.android.sunshine.app.MainActivity@370579e1
+        mSavedViewState={2131558489=AbsListView.SavedState{1f50700a selectedId=-9223372036854775808 firstId=-1 viewTop=0 position=0 height=958 filter=null checkState=null}}
+        mContainer=android.widget.FrameLayout{91ef07b V.E..... ........ 0,0-768,1022 #7f0d004f app:id/container}
+        mView=android.widget.FrameLayout{9940e98 V.E..... ........ 0,0-768,1022}
+        mInnerView=android.widget.FrameLayout{9940e98 V.E..... ........ 0,0-768,1022}
+        Loader Manager:
+          Active Loaders:
+            #0: LoaderInfo{120cb6f1 #0 : CursorLoader{3e8d82d6}}
+              mId=0 mArgs=null
+              mCallbacks=ForecastFragment{31470875 #0 id=0x7f0d004f ForecastFragment}
+              mLoader=CursorLoader{3e8d82d6 id=0}
+                mId=0 mListener=null
+                mUri=content://com.example.android.sunshine.app/weather/08857?date=1450933200000
+                mProjection=[weather._id, date, short_desc, max, min, location_setting, weather_id, coord_lat, coord_long]
+                mSelection=null
+                mSelectionArgs=null
+                mSortOrder=date ASC
+                mCursor=android.content.ContentResolver$CursorWrapperInner@7a21957
+                mContentChanged=false
+              mHaveData=true  mDeliveredData=true
+              mData=android.content.ContentResolver$CursorWrapperInner@7a21957
+              mStarted=false mReportNextStart=false mDestroyed=false
+              mRetaining=false mRetainingStarted=false mListenerRegistered=false
+        Child FragmentManager{14077c44 in ForecastFragment{31470875}}:
+          FragmentManager misc state:
+            mActivity=com.example.android.sunshine.app.MainActivity@370579e1
+            mContainer=android.support.v4.app.Fragment$1@2fa4d12d
+            mParent=ForecastFragment{31470875 #0 id=0x7f0d004f ForecastFragment}
+            mCurState=2 mStateSaved=true mDestroyed=false
+    Added Fragments:
+      #0: ForecastFragment{31470875 #0 id=0x7f0d004f ForecastFragment}
+    Fragments Created Menus:
+      #0: ForecastFragment{31470875 #0 id=0x7f0d004f ForecastFragment}
+    FragmentManager misc state:
+      mActivity=com.example.android.sunshine.app.MainActivity@370579e1
+      mContainer=android.support.v4.app.FragmentActivity$2@36b6f662
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{3cc4f3f3 I.E..... ... 0,0-768,1280}
+        android.widget.LinearLayout{32218b0 V.E..... ... 0,0-768,1184}
+          android.view.ViewStub{12a5329 G.E..... ... 0,0-0,0 #1020373}
+          android.widget.FrameLayout{1f1216ae V.E..... ... 0,50-768,1184}
+            android.support.v7.internal.widget.ActionBarOverlayLayout{3630dc4f V.E..... ... 0,0-768,1134 #7f0d003e app:id/decor_content_parent}
+              android.support.v7.internal.widget.ContentFrameLayout{2a080fdc V.E..... ... 0,112-768,1134 #1020002 android:id/content}
+                android.widget.FrameLayout{91ef07b V.E..... ... 0,0-768,1022 #7f0d004f app:id/container}
+                  android.widget.FrameLayout{9940e98 V.E..... ... 0,0-768,1022}
+                    android.widget.ListView{3a6bf8e5 VFED.VC. F.. 32,32-736,990 #7f0d0059 app:id/listview_forecast}
+                      android.widget.LinearLayout{2becefba V.E..... ... 0,0-704,198}
+                        android.widget.LinearLayout{8c8ee6b V.E..... ... 32,32-352,166}
+                          android.support.v7.widget.AppCompatTextView{7f44dc8 V.ED.... ... 32,0-287,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{3683e61 V.ED.... ... 139,38-181,76 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{166a4d86 V.ED.... ... 139,76-181,114 #7f0d005e app:id/list_item_low_textview}
+                        android.widget.LinearLayout{2a860647 V.E..... ... 352,32-672,166}
+                          android.widget.ImageView{12e47e74 V.ED.... ... 112,0-208,96 #7f0d005a app:id/list_item_icon}
+                          android.support.v7.widget.AppCompatTextView{2b895f9d V.ED.... ... 133,96-187,134 #7f0d005c app:id/list_item_forecast_textview}
+                      android.widget.LinearLayout{350dbc12 V.E..... ... 0,199-704,359}
+                        android.widget.ImageView{e12bfe3 V.ED.... ... 32,32-128,128 #7f0d005a app:id/list_item_icon}
+                        android.widget.LinearLayout{1050de0 V.E..... ... 128,42-630,118}
+                          android.support.v7.widget.AppCompatTextView{14a15899 V.ED.... ... 32,0-502,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{1107875e V.ED.... ... 32,38-502,76 #7f0d005c app:id/list_item_forecast_textview}
+                        android.widget.LinearLayout{1c27773f V.E..... ... 630,42-672,118}
+                          android.support.v7.widget.AppCompatTextView{3cdd280c V.ED.... ... 0,0-42,38 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{11a5e555 V.ED.... ... 0,38-42,76 #7f0d005e app:id/list_item_low_textview}
+                      android.widget.LinearLayout{440bb6a V.E..... ... 0,360-704,520}
+                        android.widget.ImageView{26a6485b V.ED.... ... 32,32-128,128 #7f0d005a app:id/list_item_icon}
+                        android.widget.LinearLayout{303ab8f8 V.E..... ... 128,42-630,118}
+                          android.support.v7.widget.AppCompatTextView{352c81d1 V.ED.... ... 32,0-502,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{2c272436 V.ED.... ... 32,38-502,76 #7f0d005c app:id/list_item_forecast_textview}
+                        android.widget.LinearLayout{31770f37 V.E..... ... 630,42-672,118}
+                          android.support.v7.widget.AppCompatTextView{11de6ca4 V.ED.... ... 0,0-42,38 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{ba66a0d V.ED.... ... 0,38-42,76 #7f0d005e app:id/list_item_low_textview}
+                      android.widget.LinearLayout{3d394dc2 V.E..... ... 0,521-704,681}
+                        android.widget.ImageView{2d2367d3 V.ED.... ... 32,32-128,128 #7f0d005a app:id/list_item_icon}
+                        android.widget.LinearLayout{21e7af10 V.E..... ... 128,42-630,118}
+                          android.support.v7.widget.AppCompatTextView{3d5c9a09 V.ED.... ... 32,0-502,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{352840e V.ED.... ... 32,38-502,76 #7f0d005c app:id/list_item_forecast_textview}
+                        android.widget.LinearLayout{3f32ae2f V.E..... ... 630,42-672,118}
+                          android.support.v7.widget.AppCompatTextView{100ac3c V.ED.... ... 0,0-42,38 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{142bcdc5 V.ED.... ... 0,38-42,76 #7f0d005e app:id/list_item_low_textview}
+                      android.widget.LinearLayout{1ab6d31a V.E..... ... 0,682-704,842}
+                        android.widget.ImageView{3445fe4b V.ED.... ... 32,32-128,128 #7f0d005a app:id/list_item_icon}
+                        android.widget.LinearLayout{e4a5028 V.E..... ... 128,42-630,118}
+                          android.support.v7.widget.AppCompatTextView{21008141 V.ED.... ... 32,0-502,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{2ddf06e6 V.ED.... ... 32,38-502,76 #7f0d005c app:id/list_item_forecast_textview}
+                        android.widget.LinearLayout{37f43427 V.E..... ... 630,42-672,118}
+                          android.support.v7.widget.AppCompatTextView{380846d4 V.ED.... ... 0,0-42,38 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{3d12f07d V.ED.... ... 0,38-42,76 #7f0d005e app:id/list_item_low_textview}
+                      android.widget.LinearLayout{404ab72 V.E..... ... 0,843-704,1003}
+                        android.widget.ImageView{2e65ebc3 V.ED.... ... 32,32-128,128 #7f0d005a app:id/list_item_icon}
+                        android.widget.LinearLayout{2b0cfc40 V.E..... ... 128,42-630,118}
+                          android.support.v7.widget.AppCompatTextView{22e31779 V.ED.... ... 32,0-502,38 #7f0d005b app:id/list_item_date_textview}
+                          android.support.v7.widget.AppCompatTextView{2c6e0cbe V.ED.... ... 32,38-502,76 #7f0d005c app:id/list_item_forecast_textview}
+                        android.widget.LinearLayout{bb1811f V.E..... ... 630,42-672,118}
+                          android.support.v7.widget.AppCompatTextView{ce59c6c V.ED.... ... 0,0-42,38 #7f0d005d app:id/list_item_high_textview}
+                          android.support.v7.widget.AppCompatTextView{1af4b235 V.ED.... ... 0,38-42,76 #7f0d005e app:id/list_item_low_textview}
+              android.support.v7.internal.widget.ActionBarContainer{127a36ca V.ED.... ... 0,0-768,112 #7f0d003f app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{4f7103b V.E..... ... 0,0-768,112 #7f0d0040 app:id/action_bar}
+                  android.widget.TextView{2cc61358 V.ED.... ... 32,29-196,83}
+                  android.support.v7.widget.ActionMenuView{384b3cb1 V.E..... ... 592,0-768,112}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{66cf596 VFED..CL ... 0,8-96,104 #7f0d0070 app:id/action_show_location}
+                    android.support.v7.widget.ActionMenuPresenter$OverflowMenuButton{373c7517 VFED..C. ... 96,8-176,104}
+                android.support.v7.internal.widget.ActionBarContextView{17350d04 G.E..... ... 0,0-0,0 #7f0d0041 app:id/action_context_bar}
+        android.view.View{20a5f2ed V.ED.... ... 0,0-768,50 #102002f android:id/statusBarBackground}
+        android.view.View{6fad522 V.ED.... ... 0,1184-768,1280 #1020030 android:id/navigationBarBackground}

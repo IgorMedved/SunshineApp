@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+
+    <style name ="Selector" parent="AppTheme">
+
+        <item name="android:choiceMode">singleChoice</item>
+
+    </style>
+
+
+
+</resources>

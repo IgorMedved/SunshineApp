@@ -9,4 +9,8 @@
     <dimen name="abc_action_bar_progress_bar_size">32dp</dimen>
     <dimen name="abc_text_size_subtitle_material_toolbar">12dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">14dp</dimen>
+    <!-- From: file:/C:/Users/Igor/Desktop/AndroidStudioPr/Sunshine-Version-2/app/src/main/res/values-land/refs.xml -->
+    <eat-comment/>
+    <item name="fragment_detail" type="layout">@layout/fragment_detail_wide</item>
+    <item name="fragment_item" type="layout">@layout/fragment_item_grid</item>
 </resources>
