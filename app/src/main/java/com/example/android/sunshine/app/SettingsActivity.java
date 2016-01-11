@@ -9,6 +9,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 
 /**
@@ -32,6 +33,7 @@ public class SettingsActivity extends PreferenceActivity
         // updated when the preference changes.
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_location_key)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_units_key)));
+       // bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_notification_key)));
     }
 
     /**
@@ -66,7 +68,10 @@ public class SettingsActivity extends PreferenceActivity
         } else {
             // For other preferences, set the summary to the value's simple string representation.
             preference.setSummary(stringValue);
+
         }
+
+        SunshineSyncAdapter.syncImmediately(this);
         return true;
     }
 

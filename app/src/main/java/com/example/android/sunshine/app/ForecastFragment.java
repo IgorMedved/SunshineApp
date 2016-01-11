@@ -1,6 +1,8 @@
 package com.example.android.sunshine.app;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,9 +20,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.android.sunshine.app.data.WeatherContract;
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -37,21 +42,17 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
 
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
     private static final String LOG_TAG = ForecastFragment.class.getSimpleName();
 
 
     private static final int FORECAST_LOADER = 0;
+
     public static final String LIST_POSITION = "position";
 
 
 
-    // TODO: Rename and change types of parameters
-    private String jsonData;
-    private String mParam2;
+
 
 
     private ForecastAdapter mForecastAdapter;
@@ -64,6 +65,8 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
      * The fragment's ListView/GridView.
      */
     private AbsListView mListView;
+
+
 
     /**
      * The Adapter which will be used to populate the ListView/GridView with
@@ -78,16 +81,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         }
     }
 
-    // TODO: Rename and change types of parameters
-    public static ForecastFragment newInstance (String param1, String param2)
-    {
-        ForecastFragment fragment = new ForecastFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -119,11 +113,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
 
 
-        if (getArguments() != null)
-        {
-            jsonData = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
 
 
     }
@@ -145,19 +135,36 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
     }
 
-    private void updateWeather()
+/*    private void updateWeather()
     {
 
         FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
         String location = Utility.getPreferredLocation(getActivity());
         weatherTask.execute(location);
         getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
+    }*/
+
+    private void refreshWeather()
+    {
+
+
+       /* AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+        alarmMgr.set(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis() +
+                        5   * 1000, alarmIntent);
+
+        getLoaderManager().restartLoader(FORECAST_LOADER, null, this);*/
+        SunshineSyncAdapter.syncImmediately(getActivity());
+
     }
 
     public void onLocationChanged()
     {
-        updateWeather();
-        getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
+        refreshWeather();
+        //getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
 
     }
 
@@ -172,9 +179,29 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         if (id == R.id.action_refresh)
         {
             //Log.e(LOG_TAG, "I am here!");
-            updateWeather();
+            refreshWeather();
 
             return true;
+        }
+        else if (id == R.id.action_show_location)
+        {
+            double latitude = mForecastAdapter.getLatitude();
+            double longitude = mForecastAdapter.getLongitude();
+            String intentString = "geo:0,0?q="+latitude+","+ longitude +"(Forecast Location)";
+            Log.v(LOG_TAG, "map intent message is " + intentString);
+            Uri location = Uri.parse(intentString);
+
+            Intent intent = new Intent (Intent.ACTION_VIEW, location);
+
+            PackageManager packageManager = getActivity().getPackageManager();
+            List activities = packageManager.queryIntentActivities(intent,
+                    PackageManager.MATCH_DEFAULT_ONLY);
+            boolean isIntentSafe = activities.size() > 0;
+            if (isIntentSafe)
+                startActivity(intent);
+
+            else
+                Log.e(LOG_TAG, "Could not start map intent with " + intentString);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -255,20 +282,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         mListPosition = position;
     }
 
-    /**
-     * The default content for this Fragment has a TextView that is shown when
-     * the list is empty. If you would like to change the text, call this method
-     * to supply the text it should use.
-     */
-    public void setEmptyText (CharSequence emptyText)
-    {
-        View emptyView = mListView.getEmptyView();
 
-        if (emptyView instanceof TextView)
-        {
-            ((TextView) emptyView).setText(emptyText);
-        }
-    }
 
     @Override
     public Loader<Cursor> onCreateLoader (int id, Bundle args)

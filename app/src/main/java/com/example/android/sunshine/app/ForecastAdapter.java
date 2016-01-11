@@ -52,6 +52,9 @@ public class ForecastAdapter extends CursorAdapter
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
 
+    private double mLongitude;
+    private double mLatitude;
+
     public ForecastAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
     }
@@ -138,12 +141,13 @@ public class ForecastAdapter extends CursorAdapter
         }
         viewHolder.iconView.setImageResource(iconResourceId);
 
-        // TODO Read date from cursor
+        //  Read date from cursor
         String date = Utility.getFriendlyDayString(context, cursor.getLong(COL_WEATHER_DATE));
+
 
         viewHolder.dateView.setText(date);
 
-        // TODO Read weather forecast from cursor
+        //  Read weather forecast from cursor
         String forecast = cursor.getString(COL_WEATHER_DESC);
 
         viewHolder.descriptionView.setText(forecast);
@@ -156,11 +160,24 @@ public class ForecastAdapter extends CursorAdapter
 
         viewHolder.highView.setText(Utility.formatTemperature(context, high, isMetric));
 
-        // TODO Read low temperature from cursor
+        //  Read low temperature from cursor
         double low = cursor.getDouble(COL_WEATHER_MIN_TEMP);
+
+
 
         viewHolder.lowView.setText(Utility.formatTemperature(context, low, isMetric));
 
+        // read latitude and logitude from cursor
+        mLatitude = cursor.getDouble(COL_COORD_LAT);
+        mLongitude = cursor.getDouble(COL_COORD_LONG);
+    }
+
+    public double getLongitude() {
+        return mLongitude;
+    }
+
+    public double getLatitude() {
+        return mLatitude;
     }
 }
 

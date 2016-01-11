@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
+
 import java.util.List;
 
 
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
 
         ForecastFragment ff = (ForecastFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_forecast);
         ff.setUseTodayLayout(!mTwoPane);
+
+        SunshineSyncAdapter.initializeSyncAdapter(this);
     }
 
     @Override
@@ -136,24 +140,9 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         {
 
 
-            String locationString = Utility.getPreferredLocation(this);
-            String intentString = "geo:0?q="+locationString;
-            Log.v(LOG_TAG, "map intent message is " + intentString);
-            Uri location = Uri.parse(intentString);
 
-            Intent intent = new Intent (Intent.ACTION_VIEW, location);
 
-            PackageManager packageManager = getPackageManager();
-            List activities = packageManager.queryIntentActivities(intent,
-                    PackageManager.MATCH_DEFAULT_ONLY);
-            boolean isIntentSafe = activities.size() > 0;
-            if (isIntentSafe)
-                startActivity(intent);
-
-            else
-                Log.e(LOG_TAG, "Could not start map intent with " + intentString);
-
-            return true;
+            return false;
         }
 
 

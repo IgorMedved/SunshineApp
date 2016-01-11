@@ -1737,37 +1737,35 @@ containing a value of this type.
         public static final int abc_search_view=0x7f040016;
         public static final int abc_select_dialog_material=0x7f040017;
         public static final int abc_simple_dropdown_hint=0x7f040018;
-        public static final int activity_connection_error=0x7f040019;
-        public static final int activity_detail=0x7f04001a;
-        public static final int activity_main=0x7f04001b;
-        public static final int fragment_detail=0x7f04001c;
-        public static final int fragment_detail_wide=0x7f04001d;
-        public static final int fragment_item=0x7f040030;
-        public static final int fragment_item_grid=0x7f04001e;
-        public static final int fragment_item_list=0x7f04001f;
-        public static final int fragment_main=0x7f040020;
-        public static final int list_item_forecast=0x7f040021;
-        public static final int list_item_forecast_tablet=0x7f040022;
-        public static final int list_item_forecast_today=0x7f040023;
-        public static final int notification_media_action=0x7f040024;
-        public static final int notification_media_cancel_action=0x7f040025;
-        public static final int notification_template_big_media=0x7f040026;
-        public static final int notification_template_big_media_narrow=0x7f040027;
-        public static final int notification_template_lines=0x7f040028;
-        public static final int notification_template_media=0x7f040029;
-        public static final int notification_template_part_chronometer=0x7f04002a;
-        public static final int notification_template_part_time=0x7f04002b;
-        public static final int select_dialog_item_material=0x7f04002c;
-        public static final int select_dialog_multichoice_material=0x7f04002d;
-        public static final int select_dialog_singlechoice_material=0x7f04002e;
-        public static final int support_simple_spinner_dropdown_item=0x7f04002f;
+        public static final int activity_detail=0x7f040019;
+        public static final int activity_main=0x7f04001a;
+        public static final int fragment_detail=0x7f04001b;
+        public static final int fragment_detail_wide=0x7f04001c;
+        public static final int fragment_item=0x7f04002f;
+        public static final int fragment_item_grid=0x7f04001d;
+        public static final int fragment_item_list=0x7f04001e;
+        public static final int fragment_main=0x7f04001f;
+        public static final int list_item_forecast=0x7f040020;
+        public static final int list_item_forecast_tablet=0x7f040021;
+        public static final int list_item_forecast_today=0x7f040022;
+        public static final int notification_media_action=0x7f040023;
+        public static final int notification_media_cancel_action=0x7f040024;
+        public static final int notification_template_big_media=0x7f040025;
+        public static final int notification_template_big_media_narrow=0x7f040026;
+        public static final int notification_template_lines=0x7f040027;
+        public static final int notification_template_media=0x7f040028;
+        public static final int notification_template_part_chronometer=0x7f040029;
+        public static final int notification_template_part_time=0x7f04002a;
+        public static final int select_dialog_item_material=0x7f04002b;
+        public static final int select_dialog_multichoice_material=0x7f04002c;
+        public static final int select_dialog_singlechoice_material=0x7f04002d;
+        public static final int support_simple_spinner_dropdown_item=0x7f04002e;
     }
     public static final class menu {
         public static final int detail=0x7f0f0000;
         public static final int detailfragment=0x7f0f0001;
         public static final int forecastfragment=0x7f0f0002;
         public static final int main=0x7f0f0003;
-        public static final int menu_connection_error=0x7f0f0004;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1793,29 +1791,38 @@ containing a value of this type.
         public static final int action_settings=0x7f070011;
         public static final int app_name=0x7f070012;
         public static final int connection_error=0x7f070013;
-        public static final int format_full_friendly_date=0x7f070014;
-        public static final int format_humidity=0x7f070015;
-        public static final int format_pressure=0x7f070016;
-        public static final int format_temperature=0x7f070017;
-        public static final int format_wind_kmh=0x7f070018;
-        public static final int format_wind_mph=0x7f070019;
-        public static final int hello_world=0x7f07001a;
-        public static final int no_weather_available=0x7f07001b;
-        public static final int pref_header_general=0x7f07001c;
-        public static final int pref_location_default=0x7f07001d;
-        public static final int pref_location_key=0x7f07001e;
-        public static final int pref_location_title=0x7f07001f;
-        public static final int pref_temp_title=0x7f070020;
-        public static final int pref_units_default=0x7f070021;
-        public static final int pref_units_imperial=0x7f070022;
-        public static final int pref_units_key=0x7f070023;
-        public static final int pref_units_metric=0x7f070024;
-        public static final int status_bar_notification_info_overflow=0x7f070025;
-        public static final int title_activity_connection_error=0x7f070026;
-        public static final int title_activity_detail=0x7f070027;
-        public static final int title_activity_settings=0x7f070028;
-        public static final int today=0x7f070029;
-        public static final int tomorrow=0x7f07002a;
+        public static final int content_authority=0x7f070014;
+        public static final int format_full_friendly_date=0x7f070015;
+        public static final int format_humidity=0x7f070016;
+        public static final int format_notification=0x7f070017;
+        public static final int format_pressure=0x7f070018;
+        public static final int format_temperature=0x7f070019;
+        public static final int format_wind_kmh=0x7f07001a;
+        public static final int format_wind_mph=0x7f07001b;
+        public static final int hello_world=0x7f07001c;
+        public static final int no_weather_available=0x7f07001d;
+        public static final int pref_enable_notifications_default=0x7f07001e;
+        public static final int pref_enable_notifications_false=0x7f07001f;
+        public static final int pref_enable_notifications_true=0x7f070020;
+        public static final int pref_header_general=0x7f070021;
+        public static final int pref_last_notification=0x7f070022;
+        public static final int pref_location_default=0x7f070023;
+        public static final int pref_location_key=0x7f070024;
+        public static final int pref_location_title=0x7f070025;
+        public static final int pref_notification_key=0x7f070026;
+        public static final int pref_notification_title=0x7f070027;
+        public static final int pref_temp_title=0x7f070028;
+        public static final int pref_units_default=0x7f070029;
+        public static final int pref_units_imperial=0x7f07002a;
+        public static final int pref_units_key=0x7f07002b;
+        public static final int pref_units_metric=0x7f07002c;
+        public static final int status_bar_notification_info_overflow=0x7f07002d;
+        public static final int sync_account_type=0x7f07002e;
+        public static final int title_activity_connection_error=0x7f07002f;
+        public static final int title_activity_detail=0x7f070030;
+        public static final int title_activity_settings=0x7f070031;
+        public static final int today=0x7f070032;
+        public static final int tomorrow=0x7f070033;
     }
     public static final class style {
         public static final int ActionBar_Solid_Sunshine_NoTitle=0x7f090076;
@@ -2120,7 +2127,9 @@ containing a value of this type.
         public static final int Widget_AppCompat_Toolbar_Button_Navigation=0x7f090129;
     }
     public static final class xml {
-        public static final int pref_general=0x7f060000;
+        public static final int authenticator=0x7f060000;
+        public static final int pref_general=0x7f060001;
+        public static final int syncadapter=0x7f060002;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

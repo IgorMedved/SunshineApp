@@ -30,4 +30,12 @@
     <string name="pref_units_imperial">2</string>
     <string name="pref_units_metric">1</string>
 
+    <string name = "pref_notification_key">enable_notifications</string>
+    <string name = "pref_notification_title">Weather Notification</string>
+    <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="pref_enable_notifications_false">Not Enabled</string>
+    <string name="pref_enable_notifications_default" translatable="false">true</string>
+
+
+
 </resources>
