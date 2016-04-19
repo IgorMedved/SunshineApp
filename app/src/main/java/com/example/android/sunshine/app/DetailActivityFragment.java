@@ -24,16 +24,15 @@ import com.example.android.sunshine.app.data.WeatherContract;
 
 
 /**
- * A placeholder fragment containing a simple view.
+ * User interface for showing detail weather view. It uses a cursor loader to get items from the database
  */
-public class DetailActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>
-{
+public class DetailActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private CustomIconShareProvider mShareActionProvider;
     private static final String HASHTAG = " #SunhineApp";
     private static final String LOG_TAG = DetailActivityFragment.class.getSimpleName();
     private static final int DETAIL_LOADER = 0;
-    public static final String DETAIL_URI= "mUri";
+    public static final String DETAIL_URI = "mUri";
 
     private TextView mDayTxt;
     private TextView mDateTxt;
@@ -59,23 +58,16 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     static final int COL_WEATHER_PRESSURE = 9;
 
 
-
-
     private String mForecastStr;
     private Uri mUri;
 
-    public DetailActivityFragment ()
-    {
+    public DetailActivityFragment() {
     }
 
 
-
-
-
-
     @Override
-    public void onSaveInstanceState (Bundle outState)
-    {
+    // saves uri to location of weather information in local database for future reuse
+    public void onSaveInstanceState(Bundle outState) {
         outState.putParcelable(DETAIL_URI, mUri);
         Log.v(LOG_TAG, "mUri is " + mUri);
 
@@ -84,31 +76,28 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onCreate (Bundle savedInstanceState)
-    {
+    // DetailActivityFragment on create
+    // initilizes cursorLoader to get info from local weather database
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(true); // set flag for adding additional items to the options menu
 
-
+        // initialize cursor loader on starting detail activity from main activity
         if (savedInstanceState == null)
             getLoaderManager().initLoader(DETAIL_LOADER, null, this);
+            // restart cursor loader if returning from options screen or after screen rotation
         else
             getLoaderManager().restartLoader(DETAIL_LOADER, savedInstanceState, this);
-
-
-
 
 
     }
 
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.menu_item_share)
-        {
+        if (id == R.id.menu_item_share) {
 
 
             return true;
@@ -118,28 +107,27 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater)
-    {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         //super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.detailfragment, menu);
         MenuItem item = menu.findItem(R.id.menu_item_share);
 
         // Fetch and store ShareActionProvider
-        mShareActionProvider = new CustomIconShareProvider (getActivity());
-                MenuItemCompat.setActionProvider(item, mShareActionProvider);
+        mShareActionProvider = new CustomIconShareProvider(getActivity());
+        MenuItemCompat.setActionProvider(item, mShareActionProvider);
         if (mShareActionProvider != null) {
             mShareActionProvider.setShareIntent(createShareForecastIntent());
-        }
-        else
-        {
+        } else {
             Log.v(LOG_TAG, "Share action provider is null");
         }
 
     }
 
-    private Intent createShareForecastIntent()
-    {
-        Intent share = new Intent (Intent.ACTION_SEND);
+    // helper function for sharing weather information with other apps (i.e facebook, twitter, mail etc.)
+    // creates Intent for starting an app chosen by the user and passing it weather details
+    // called when user selects "share" button from menu
+    private Intent createShareForecastIntent() {
+        Intent share = new Intent(Intent.ACTION_SEND);
         share.putExtra(Intent.EXTRA_TEXT, mForecastStr + " " + HASHTAG);
         share.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         share.setType("text/plain");
@@ -148,49 +136,48 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
 
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle arguments = getArguments();
-        if (arguments!= null && savedInstanceState==null)
+        // set/update Uri for database requests
+        if (arguments != null && savedInstanceState == null)
             mUri = arguments.getParcelable(DETAIL_URI);
-        else if(savedInstanceState != null)
+        else if (savedInstanceState != null)
             mUri = savedInstanceState.getParcelable(DETAIL_URI);
 
-        ScrollView fragmentLayout = (ScrollView)inflater.inflate(R.layout.fragment_detail, container, false);
-        mDayTxt = (TextView)fragmentLayout.findViewById(R.id.detail_day_txt);
-        mDateTxt = (TextView)fragmentLayout.findViewById(R.id.detail_date_txt);
-        mHighTxt = (TextView)fragmentLayout.findViewById(R.id.detail_high_textview);
-        mLowTxt = (TextView)fragmentLayout.findViewById(R.id.detail_low_textview);
-        mIconImg = (ImageView)fragmentLayout.findViewById(R.id.detail_icon);
-        mDescriptionTxt = (TextView)fragmentLayout.findViewById(R.id.detail_description_textview);
-        mWindTxt = (TextView)fragmentLayout.findViewById(R.id.detail_wind_textview);
-        mHumidityTxt= (TextView)fragmentLayout.findViewById(R.id.detail_humidity_textview);
-        mPressureTxt = (TextView)fragmentLayout.findViewById(R.id.detail_pressure_textview);
-        mCompassView = (MyCompassView)fragmentLayout.findViewById(R.id.detail_compassview);
 
-
+        // initialize UI elements from resource file
+        ScrollView fragmentLayout = (ScrollView) inflater.inflate(R.layout.fragment_detail, container, false);
+        mDayTxt = (TextView) fragmentLayout.findViewById(R.id.detail_day_txt);
+        mDateTxt = (TextView) fragmentLayout.findViewById(R.id.detail_date_txt);
+        mHighTxt = (TextView) fragmentLayout.findViewById(R.id.detail_high_textview);
+        mLowTxt = (TextView) fragmentLayout.findViewById(R.id.detail_low_textview);
+        mIconImg = (ImageView) fragmentLayout.findViewById(R.id.detail_icon);
+        mDescriptionTxt = (TextView) fragmentLayout.findViewById(R.id.detail_description_textview);
+        mWindTxt = (TextView) fragmentLayout.findViewById(R.id.detail_wind_textview);
+        mHumidityTxt = (TextView) fragmentLayout.findViewById(R.id.detail_humidity_textview);
+        mPressureTxt = (TextView) fragmentLayout.findViewById(R.id.detail_pressure_textview);
+        mCompassView = (MyCompassView) fragmentLayout.findViewById(R.id.detail_compassview);
 
 
         return fragmentLayout;
     }
 
+    // part of Loader callback interface for interacting with weather content provider
+    // start database request
     @Override
-    public Loader<Cursor> onCreateLoader (int id, Bundle args)
-    {
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Log.v(LOG_TAG, "onCreateLoader args" + args);
 
 
-        if(args!=null &&args.getParcelable(DETAIL_URI)!=null)
-        {
+        if (args != null && args.getParcelable(DETAIL_URI) != null) {
             mUri = args.getParcelable(DETAIL_URI);
             Log.v(LOG_TAG, "detail Uri in on Create Loader is" + mUri);
         }
 
-        if (null != mUri)
-        {
+        if (null != mUri) {
             String sortOrder = WeatherContract.WeatherEntry.COLUMN_DATE + " ASC";
 
-
+            // start database request from location specified in mUri, with information defined in DETAIL_COLUMNS
             return new CursorLoader(getActivity(), mUri, DETAIL_COLUMNS, null, null, sortOrder);
         }
 
@@ -201,6 +188,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
 
     }
 
+    // Column details definition for local database request
     private static final String[] DETAIL_COLUMNS = {
             // In this case the id needs to be fully qualified with a table name, since
             // the content provider joins the location & weather tables in the background
@@ -213,10 +201,8 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
             WeatherContract.WeatherEntry.COLUMN_SHORT_DESC,
             WeatherContract.WeatherEntry.COLUMN_MAX_TEMP,
             WeatherContract.WeatherEntry.COLUMN_MIN_TEMP,
-//            WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING,
+
             WeatherContract.WeatherEntry.COLUMN_WEATHER_ID,
-//            WeatherContract.LocationEntry.COLUMN_COORD_LAT,
-//            WeatherContract.LocationEntry.COLUMN_COORD_LONG,*/
 
             WeatherContract.WeatherEntry.COLUMN_HUMIDITY,
             WeatherContract.WeatherEntry.COLUMN_WIND_SPEED,
@@ -224,34 +210,37 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
             WeatherContract.WeatherEntry.COLUMN_PRESSURE
     };
 
+    // part of LoaderCallback interface updates User interface with the data provided in Cursor
     @Override
-    public void onLoadFinished (Loader<Cursor> loader, Cursor data)
-    {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.v(LOG_TAG, "onLoadFinished");
 
         setData(data);
 
 
     }
-    private void setData (Cursor data)
-    {
-        if (data.moveToNext())
-        {
+
+    // helper function for updating User interface with information from database (Cursor)
+    private void setData(Cursor data) {
+        if (data.moveToNext()) {
+
+            // get data from Cursor
             boolean isMetric = Utility.isMetric(getActivity());
             double high = data.getDouble(COL_WEATHER_MAX_TEMP);
             double low = data.getDouble(COL_WEATHER_MIN_TEMP);
             long date = data.getLong(COL_WEATHER_DATE);
             double humidity = data.getDouble(COL_WEATHER_HUMIDITY);
-            double windSpeed =data.getDouble(COL_WEATHER_WIND);
+            double windSpeed = data.getDouble(COL_WEATHER_WIND);
             double windDirection = data.getDouble(COL_WEATHER_DEGREES);
             double pressure = data.getDouble(COL_WEATHER_PRESSURE);
             String weatherDescription = data.getString(COL_WEATHER_DESC);
             int weatherId = data.getInt(COL_WEATHER_DESCRIPTION_ID);
             int artId = Utility.getArtResourceForWeatherCondition(weatherId);
             String dateText = Utility.getFormattedMonthDay(getActivity(), date);
-            String highTxt =Utility.formatTemperature(getActivity(), high, isMetric);
+            String highTxt = Utility.formatTemperature(getActivity(), high, isMetric);
             String lowTxt = Utility.formatTemperature(getActivity(), low, isMetric);
 
+            // update UI elements with new data
             mIconImg.setImageResource(artId);
             mDayTxt.setText(Utility.getDayName(getActivity(), date));
             mDateTxt.setText(dateText);
@@ -265,7 +254,8 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
             mDescriptionTxt.setText(weatherDescription);
             mCompassView.updateData(windDirection);
 
-
+            // saves information from database in formatted String to be used for sharing weather info with other apps
+            // (i.e facebook, twitter, email, messaging, etc)
             mForecastStr = String.format("%s - %s - %s/%s", dateText, weatherDescription, highTxt, lowTxt);
 
             if (mShareActionProvider != null)
@@ -273,62 +263,26 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         }
     }
 
+    // part of LoaderCallback interface
+    // no code neded here
     @Override
-    public void onLoaderReset (Loader<Cursor> loader)
-    {
+    public void onLoaderReset(Loader<Cursor> loader) {
 
     }
 
- /*   @Override
-   public void onStart ()
-    {
-        Log.v(LOG_TAG, "onStart");
 
-        if(!getLoaderManager().hasRunningLoaders())
-            getLoaderManager().restartLoader(DETAIL_LOADER, null, this);
-
-
-        super.onStart();
-    }*/
-
-    void onLocationChanged( String newLocation )
-    {
+    // helper function that is called when the user changes the location for which to see the weather
+    // re-queries database for new weather information
+    void onLocationChanged(String newLocation) {
         // replace the uri, since the location has changed
         Uri uri = mUri;
-        if (null != uri)
-         {
+        if (null != uri) {
             long date = WeatherContract.WeatherEntry.getDateFromUri(uri);
             Uri updatedUri = WeatherContract.WeatherEntry.buildWeatherLocationWithDate(newLocation, date);
             mUri = updatedUri;
+            //  launch a new database query to get weather info for new location
             getLoaderManager().restartLoader(DETAIL_LOADER, null, this);
         }
     }
 
-    @Override
-    public void onResume ()
-    {
-        Log.v(LOG_TAG, "onResume");
-        super.onResume();
-    }
-
-    @Override
-    public void onPause ()
-    {
-        Log.v(LOG_TAG, "onPause");
-        super.onPause();
-    }
-
-    @Override
-    public void onStop ()
-    {
-        Log.v(LOG_TAG, "onStop");
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroy ()
-    {
-        Log.v(LOG_TAG, "onDestroy");
-        super.onDestroy();
-    }
 }

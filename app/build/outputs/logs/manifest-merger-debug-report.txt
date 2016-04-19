@@ -34,117 +34,117 @@ ADDED from AndroidManifest.xml:13:5
 	android:name
 		ADDED from AndroidManifest.xml:14:9
 application
-ADDED from AndroidManifest.xml:16:5
+ADDED from AndroidManifest.xml:19:5
 MERGED from com.android.support:appcompat-v7:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
 MERGED from com.android.support:support-v4:22.2.1:22:5
 	android:label
-		ADDED from AndroidManifest.xml:19:9
+		ADDED from AndroidManifest.xml:22:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:17:9
-	android:icon
-		ADDED from AndroidManifest.xml:18:9
-	android:theme
 		ADDED from AndroidManifest.xml:20:9
+	android:icon
+		ADDED from AndroidManifest.xml:21:9
+	android:theme
+		ADDED from AndroidManifest.xml:23:9
 activity#com.example.android.sunshine.app.MainActivity
-ADDED from AndroidManifest.xml:23:9
+ADDED from AndroidManifest.xml:26:9
 	android:label
-		ADDED from AndroidManifest.xml:25:13
+		ADDED from AndroidManifest.xml:28:13
 	android:theme
-		ADDED from AndroidManifest.xml:26:13
+		ADDED from AndroidManifest.xml:29:13
 	android:name
-		ADDED from AndroidManifest.xml:24:13
+		ADDED from AndroidManifest.xml:27:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:27:13
+ADDED from AndroidManifest.xml:30:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:28:17
+ADDED from AndroidManifest.xml:31:17
 	android:name
-		ADDED from AndroidManifest.xml:28:25
+		ADDED from AndroidManifest.xml:31:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:30:17
+ADDED from AndroidManifest.xml:33:17
 	android:name
-		ADDED from AndroidManifest.xml:30:27
+		ADDED from AndroidManifest.xml:33:27
 activity#com.example.android.sunshine.app.DetailActivity
-ADDED from AndroidManifest.xml:33:9
+ADDED from AndroidManifest.xml:36:9
 	android:label
-		ADDED from AndroidManifest.xml:35:13
+		ADDED from AndroidManifest.xml:38:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:36:13
+		ADDED from AndroidManifest.xml:39:13
 	android:name
-		ADDED from AndroidManifest.xml:34:13
+		ADDED from AndroidManifest.xml:37:13
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from AndroidManifest.xml:37:13
+ADDED from AndroidManifest.xml:40:13
 	android:value
-		ADDED from AndroidManifest.xml:39:17
+		ADDED from AndroidManifest.xml:42:17
 	android:name
-		ADDED from AndroidManifest.xml:38:17
+		ADDED from AndroidManifest.xml:41:17
 activity#com.example.android.sunshine.app.SettingsActivity
-ADDED from AndroidManifest.xml:41:9
+ADDED from AndroidManifest.xml:44:9
 	android:label
-		ADDED from AndroidManifest.xml:43:13
+		ADDED from AndroidManifest.xml:46:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:44:13
+		ADDED from AndroidManifest.xml:47:13
 	android:theme
+		ADDED from AndroidManifest.xml:48:13
+	android:name
 		ADDED from AndroidManifest.xml:45:13
-	android:name
-		ADDED from AndroidManifest.xml:42:13
 service#com.example.android.sunshine.app.services.SunshineService
-ADDED from AndroidManifest.xml:51:9
+ADDED from AndroidManifest.xml:54:9
 	android:exported
-		ADDED from AndroidManifest.xml:53:13
+		ADDED from AndroidManifest.xml:56:13
 	android:name
-		ADDED from AndroidManifest.xml:52:13
+		ADDED from AndroidManifest.xml:55:13
 service#com.example.android.sunshine.app.sync.SunshineAuthenticatorService
-ADDED from AndroidManifest.xml:56:9
+ADDED from AndroidManifest.xml:59:9
 	android:name
-		ADDED from AndroidManifest.xml:57:13
+		ADDED from AndroidManifest.xml:60:13
 intent-filter#android.accounts.AccountAuthenticator
-ADDED from AndroidManifest.xml:59:13
-action#android.accounts.AccountAuthenticator
-ADDED from AndroidManifest.xml:60:17
-	android:name
-		ADDED from AndroidManifest.xml:60:25
-meta-data#android.accounts.AccountAuthenticator
 ADDED from AndroidManifest.xml:62:13
-	android:resource
-		ADDED from AndroidManifest.xml:64:17
+action#android.accounts.AccountAuthenticator
+ADDED from AndroidManifest.xml:63:17
 	android:name
-		ADDED from AndroidManifest.xml:63:17
+		ADDED from AndroidManifest.xml:63:25
+meta-data#android.accounts.AccountAuthenticator
+ADDED from AndroidManifest.xml:65:13
+	android:resource
+		ADDED from AndroidManifest.xml:67:17
+	android:name
+		ADDED from AndroidManifest.xml:66:17
 service#com.example.android.sunshine.app.sync.SunshineSyncService
-ADDED from AndroidManifest.xml:67:9
+ADDED from AndroidManifest.xml:70:9
 	android:exported
-		ADDED from AndroidManifest.xml:69:13
+		ADDED from AndroidManifest.xml:72:13
 	android:name
-		ADDED from AndroidManifest.xml:68:13
+		ADDED from AndroidManifest.xml:71:13
 intent-filter#android.content.SyncAdapter
-ADDED from AndroidManifest.xml:71:13
-action#android.content.SyncAdapter
-ADDED from AndroidManifest.xml:72:17
-	android:name
-		ADDED from AndroidManifest.xml:72:25
-meta-data#android.content.SyncAdapter
 ADDED from AndroidManifest.xml:74:13
+action#android.content.SyncAdapter
+ADDED from AndroidManifest.xml:75:17
+	android:name
+		ADDED from AndroidManifest.xml:75:25
+meta-data#android.content.SyncAdapter
+ADDED from AndroidManifest.xml:77:13
 	android:resource
-		ADDED from AndroidManifest.xml:76:17
+		ADDED from AndroidManifest.xml:79:17
 	android:name
-		ADDED from AndroidManifest.xml:75:17
+		ADDED from AndroidManifest.xml:78:17
 receiver#com.example.android.sunshine.app.services.SunshineService$AlarmReceiver
-ADDED from AndroidManifest.xml:79:9
+ADDED from AndroidManifest.xml:82:9
 	android:enabled
-		ADDED from AndroidManifest.xml:81:13
+		ADDED from AndroidManifest.xml:84:13
 	android:name
-		ADDED from AndroidManifest.xml:80:13
+		ADDED from AndroidManifest.xml:83:13
 provider#com.example.android.sunshine.app.data.WeatherProvider
-ADDED from AndroidManifest.xml:87:9
+ADDED from AndroidManifest.xml:90:9
 	android:authorities
-		ADDED from AndroidManifest.xml:88:13
-	android:syncable
 		ADDED from AndroidManifest.xml:91:13
+	android:syncable
+		ADDED from AndroidManifest.xml:94:13
 	android:exported
-		ADDED from AndroidManifest.xml:90:13
+		ADDED from AndroidManifest.xml:93:13
 	android:name
-		ADDED from AndroidManifest.xml:89:13
+		ADDED from AndroidManifest.xml:92:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.2.1:20:5

@@ -40,6 +40,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Vector;
 
+// FetchWeatherTask was used for fetching weather information from openweathermap.org and putting it in
+// local database
+// currently this task is handled by SunshineSyncAdapter as it is more efficient in handling the requests as it reduces
+// battery load and internet data usage
+@Deprecated
 public class FetchWeatherTask extends AsyncTask<String, Void, Void>
 {
 

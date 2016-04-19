@@ -11,6 +11,8 @@
     <string name="pref_location_title">Location</string>
     <string name="pref_location_default">08857</string>
 
+    <string name="pref_location_status_key">location_status</string>
+
     <string name="pref_units_key">temperature</string>
     <string name="pref_temp_title">Temperature Units</string>
 
@@ -35,6 +37,7 @@
     <string name="pref_enable_notifications_true">Enabled</string>
     <string name="pref_enable_notifications_false">Not Enabled</string>
     <string name="pref_enable_notifications_default" translatable="false">true</string>
+
 
 
 

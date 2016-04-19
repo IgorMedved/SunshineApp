@@ -1,22 +1,16 @@
 package com.example.android.sunshine.app;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v7.internal.widget.ActivityChooserView;
 import android.support.v7.widget.ShareActionProvider;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.example.android.sunshine.app.data.WeatherContract;
 
 /**
  * Created by Admin User on 12/12/2015.
  */
-
+// The default Share action provider class did not work properly, as the contrast for the share icon in the action bar did not have sufficient contrast
+    // onCreatActionView() overrides the default method and sets an icon with proper contrast
 public class CustomIconShareProvider  extends ShareActionProvider {
 
     private final Context mContext;

@@ -110,7 +110,7 @@ public class ForecastAdapter extends CursorAdapter
         }
 
         View view = LayoutInflater.from(context).inflate(layoutId, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ForecastViewHolder viewHolder = new ForecastViewHolder(view);
         view.setTag(viewHolder);
 
         return view;
@@ -123,7 +123,7 @@ public class ForecastAdapter extends CursorAdapter
     public void bindView(View view, Context context, Cursor cursor) {
         // our view is pretty simple here --- just a text view
         // we'll keep the UI functional with a simple (and slow!) binding.
-        ViewHolder viewHolder = (ViewHolder)view.getTag();
+        ForecastViewHolder viewHolder = (ForecastViewHolder)view.getTag();
         // Read weather icon ID from cursor
         int weatherId = cursor.getInt(COL_WEATHER_CONDITION_ID);
         // Use placeholder image for now
@@ -181,7 +181,8 @@ public class ForecastAdapter extends CursorAdapter
     }
 }
 
-class ViewHolder
+// ForecastViewHolder contains all UI elements inside forecast list item
+class ForecastViewHolder
 {
     ImageView iconView;
     TextView dateView;
@@ -189,7 +190,7 @@ class ViewHolder
     TextView highView;
     TextView lowView;
 
-    public ViewHolder (View view)
+    public ForecastViewHolder (View view)
     {
         iconView = (ImageView)view.findViewById(R.id.list_item_icon);
         dateView = (TextView)view.findViewById(R.id.list_item_date_textview);

@@ -9,9 +9,10 @@ import android.view.View;
 
 /**
  * Created by Admin User on 1/6/2016.
+ * provides a small view for showing wind direction information on a compass
  */
 
-// source code takend from http://stackoverflow.com/questions/15240865/how-to-make-a-customized-compass-view-in-android
+// source code adapted from http://stackoverflow.com/questions/15240865/how-to-make-a-customized-compass-view-in-android
 public class MyCompassView extends View {
 
     private Paint paint;

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.android.sunshine.app.data.WeatherContract;
 import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
@@ -65,6 +66,8 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
      * The fragment's ListView/GridView.
      */
     private AbsListView mListView;
+
+    private TextView mEmptyView; // a view that is used when the device can't download data from network
 
 
 
@@ -135,28 +138,13 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
     }
 
-/*    private void updateWeather()
-    {
 
-        FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
-        String location = Utility.getPreferredLocation(getActivity());
-        weatherTask.execute(location);
-        getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
-    }*/
 
     private void refreshWeather()
     {
 
 
-       /* AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
-        alarmMgr.set(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() +
-                        5   * 1000, alarmIntent);
-
-        getLoaderManager().restartLoader(FORECAST_LOADER, null, this);*/
         SunshineSyncAdapter.syncImmediately(getActivity());
 
     }
@@ -193,7 +181,7 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
             Intent intent = new Intent (Intent.ACTION_VIEW, location);
 
-            PackageManager packageManager = getActivity().getPackageManager();
+            PackageManager packageManager =  getActivity().getPackageManager();
             List activities = packageManager.queryIntentActivities(intent,
                     PackageManager.MATCH_DEFAULT_ONLY);
             boolean isIntentSafe = activities.size() > 0;
@@ -228,7 +216,9 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         mListView = (ListView)rootView.findViewById(R.id.listview_forecast);
-        //setEmptyText(getString(R.string.no_weather_available));
+        mEmptyView = (TextView)rootView.findViewById(R.id.empty_forecast_txt);
+        mListView.setEmptyView(mEmptyView);
+
 
         mListView.setAdapter(mForecastAdapter);
 
@@ -239,6 +229,8 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
 
         return rootView;
     }
+
+
 
     @Override
     public void onAttach (Activity activity)
@@ -302,13 +294,40 @@ public class ForecastFragment extends Fragment implements AbsListView.OnItemClic
     @Override
     public void onLoadFinished (Loader<Cursor> loader, Cursor data)
     {
-        mForecastAdapter.swapCursor(data);
-        if (mListPosition!= ListView.INVALID_POSITION)
+        // check if cursor is empty
+        if (data != null)
         {
+            mForecastAdapter.swapCursor(data);
+            if (mListPosition!= ListView.INVALID_POSITION)
+            {
 
-            mListView.smoothScrollToPosition(mListPosition);
+                mListView.smoothScrollToPosition(mListPosition);
+
+            }
+        }
+        // if cursor returned empty
+        updateEmptyView();
+    }
+
+    // if no network available set empty view to no network available
+    private void updateEmptyView()
+    {
+        if (mForecastAdapter.getCount()==0)
+        {
+            if (mEmptyView!=null)
+            {
+                int message = R.string.no_weather_available;
+                if (!Utility.isNetworkAvailable(getActivity()))
+                {
+                    message = R.string.no_network_connection;
+                }
+                mEmptyView.setText(message);
+            }
 
         }
+
+
+
     }
 
     @Override

@@ -7,17 +7,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+// Activity for showing weather details information
+// Consists of DetailActivityFragment
 public class DetailActivity extends AppCompatActivity
 {
     private static final String LOG_TAG = DetailActivity.class.getSimpleName();
 
 
     @Override
+    // launches DetailActivityFragment
     protected void onCreate (Bundle savedInstanceState)
     {
 
         super.onCreate(savedInstanceState);
-        //String weatherForecast = getIntent().getStringExtra("dayWeatherForecast");
+
         setContentView(R.layout.activity_detail);
         Log.v(LOG_TAG, "saved instance is " + savedInstanceState);
 
@@ -34,48 +37,6 @@ public class DetailActivity extends AppCompatActivity
     }
 
 
-
-    @Override
-    protected void onResume ()
-    {
-        super.onResume();
-        Log.v(LOG_TAG, "onResume");
-    }
-
-    @Override
-    protected void onStart ()
-    {
-        Log.v(LOG_TAG, "onStart");
-        super.onStart();
-    }
-
-    @Override
-    protected void onRestart ()
-    {
-        Log.v(LOG_TAG, "onRestart");
-        super.onRestart();
-    }
-
-    @Override
-    protected void onPause ()
-    {
-        Log.v(LOG_TAG, "onPause");
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop ()
-    {
-        Log.v(LOG_TAG, "onStop");
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy ()
-    {
-        Log.v(LOG_TAG, "onDestroy");
-        super.onDestroy();
-    }
 
 
     @Override
